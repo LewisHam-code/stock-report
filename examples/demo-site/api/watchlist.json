@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "items": [
+    {
+      "company": "示例制造（虚构）",
+      "code": "600001",
+      "market": "SH"
+    },
+    {
+      "company": "示例软件（虚构）",
+      "code": "300001",
+      "market": "SZ"
+    }
+  ]
+}

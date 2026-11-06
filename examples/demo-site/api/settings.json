@@ -1,0 +1,13 @@
+{
+  "provider": "deepseek",
+  "model": "未配置",
+  "test_mode": false,
+  "profiles": [],
+  "configured": {},
+  "enabled_count": 0,
+  "daily_api_calls": 10,
+  "analysis_per_run": 1,
+  "reading_mode": "deep",
+  "routing_mode": "fallback",
+  "stage_routes": {}
+}

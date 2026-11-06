@@ -1,0 +1,25 @@
+{
+  "settings": {
+    "enabled": false,
+    "interval_minutes": 60,
+    "daily_api_calls": 10,
+    "analysis_per_run": 1,
+    "download_per_run": 2,
+    "narrative_refresh_days": 0,
+    "prefer_off_peak": false,
+    "quarter_workers": 2,
+    "financial_reading_limit_cny": 0.5
+  },
+  "foreground": true,
+  "model_time_policy": {
+    "enabled": false,
+    "deferred": false
+  },
+  "independent_python": true,
+  "service_managed": false,
+  "schedule_registered": false,
+  "queue": [],
+  "api_calls_today": 0,
+  "latest_run": null,
+  "demo": true
+}
