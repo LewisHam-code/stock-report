@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-11-06T10:00:00+08:00",
+  "reports": [
+    {
+      "id": "demo-report-1",
+      "document_id": "demo-doc-1",
+      "company": "示例制造（虚构）",
+      "code": "600001",
+      "market": "SH",
+      "industry": "高端制造",
+      "period": "2026Q3",
+      "date": "2026-11-06",
+      "generated_at": "2026-11-06T10:00:00+08:00",
+      "rating": "unrated",
+      "score": 72.4,
+      "score_status": "provisional",
+      "score_coverage": 80,
+      "score_range": [
+        72.4,
+        92.4
+      ],
+      "evidence_status": "insufficient",
+      "conclusion": "虚构演示：当季营收同比增长，利润环比改善；现金流与订单兑现仍需持续核对。",
+      "evidence": "仅用于展示界面。所有金额、评分和来源核对标识均由虚构样例构造。",
+      "valuation": "估值样例未接入真实市场数据。",
+      "risks": "全部为虚构样例，不能用于投资判断。",
+      "provider": "demo",
+      "model": "fictional-fixture",
+      "test_mode": true,
+      "demo": true,
+      "topics": [
+        "虚构演示"
+      ],
+      "detail_url": "./data/report-details/demo-report-1.json",
+      "source": "https://example.com/fictional-filing"
+    },
+    {
+      "id": "demo-report-2",
+      "document_id": "demo-doc-2",
+      "company": "示例软件（虚构）",
+      "code": "300001",
+      "market": "SZ",
+      "industry": "工业软件",
+      "period": "2026Q3",
+      "date": "2026-11-06",
+      "generated_at": "2026-11-06T10:00:00+08:00",
+      "rating": "unrated",
+      "score": 58.6,
+      "score_status": "provisional",
+      "score_coverage": 80,
+      "score_range": [
+        58.6,
+        78.6
+      ],
+      "evidence_status": "insufficient",
+      "conclusion": "虚构演示：单季扭亏并不代表全年盈利；关注毛利率修复和回款质量。",
+      "evidence": "仅用于展示界面。所有金额、评分和来源核对标识均由虚构样例构造。",
+      "valuation": "估值样例未接入真实市场数据。",
+      "risks": "全部为虚构样例，不能用于投资判断。",
+      "provider": "demo",
+      "model": "fictional-fixture",
+      "test_mode": true,
+      "demo": true,
+      "topics": [
+        "虚构演示"
+      ],
+      "detail_url": "./data/report-details/demo-report-2.json",
+      "source": "https://example.com/fictional-filing"
+    },
+    {
+      "id": "demo-report-3",
+      "document_id": "demo-doc-3",
+      "company": "示例材料（虚构）",
+      "code": "688001",
+      "market": "SH",
+      "industry": "新材料",
+      "period": "2026Q3",
+      "date": "2026-11-06",
+      "generated_at": "2026-11-06T10:00:00+08:00",
+      "rating": "unrated",
+      "score": 64.1,
+      "score_status": "provisional",
+      "score_coverage": 80,
+      "score_range": [
+        64.1,
+        84.1
+      ],
+      "evidence_status": "insufficient",
+      "conclusion": "虚构演示：营收增长但单季毛利率收缩；新品放量与原料成本是后续检验重点。",
+      "evidence": "仅用于展示界面。所有金额、评分和来源核对标识均由虚构样例构造。",
+      "valuation": "估值样例未接入真实市场数据。",
+      "risks": "全部为虚构样例，不能用于投资判断。",
+      "provider": "demo",
+      "model": "fictional-fixture",
+      "test_mode": true,
+      "demo": true,
+      "topics": [
+        "虚构演示"
+      ],
+      "detail_url": "./data/report-details/demo-report-3.json",
+      "source": "https://example.com/fictional-filing"
+    }
+  ],
+  "demo": true
+}

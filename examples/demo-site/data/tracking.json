@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-11-06T10:00:00+08:00",
+  "reports": [
+    {
+      "report_id": "demo-report-1",
+      "company": "示例制造（虚构）",
+      "code": "600001",
+      "market": "SH",
+      "industry": "高端制造",
+      "generated_at": "2026-11-06T10:00:00+08:00",
+      "price": 20,
+      "price_asof": "2026-11-06T10:00:00+08:00",
+      "price_checked_at": "2026-11-06T10:00:00+08:00",
+      "current_price": 20.64,
+      "current_asof": "2026-11-06T10:00:00+08:00",
+      "current_checked_at": "2026-11-06T10:00:00+08:00",
+      "price_collected_at": "2026-11-06T10:00:00+08:00",
+      "current_change_pct": 3.2,
+      "rating": "unrated",
+      "score": 72.4,
+      "score_status": "provisional",
+      "provenance": "backfilled",
+      "provider": "demo",
+      "model": "fictional-fixture",
+      "test_mode": true,
+      "demo": true,
+      "horizons": {
+        "3": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "7": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "15": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "30": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "60": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "90": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        }
+      }
+    },
+    {
+      "report_id": "demo-report-2",
+      "company": "示例软件（虚构）",
+      "code": "300001",
+      "market": "SZ",
+      "industry": "工业软件",
+      "generated_at": "2026-11-06T10:00:00+08:00",
+      "price": 25,
+      "price_asof": "2026-11-06T10:00:00+08:00",
+      "price_checked_at": "2026-11-06T10:00:00+08:00",
+      "current_price": 24.55,
+      "current_asof": "2026-11-06T10:00:00+08:00",
+      "current_checked_at": "2026-11-06T10:00:00+08:00",
+      "price_collected_at": "2026-11-06T10:00:00+08:00",
+      "current_change_pct": -1.8,
+      "rating": "unrated",
+      "score": 58.6,
+      "score_status": "provisional",
+      "provenance": "backfilled",
+      "provider": "demo",
+      "model": "fictional-fixture",
+      "test_mode": true,
+      "demo": true,
+      "horizons": {
+        "3": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "7": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "15": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "30": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "60": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "90": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        }
+      }
+    },
+    {
+      "report_id": "demo-report-3",
+      "company": "示例材料（虚构）",
+      "code": "688001",
+      "market": "SH",
+      "industry": "新材料",
+      "generated_at": "2026-11-06T10:00:00+08:00",
+      "price": 30,
+      "price_asof": "2026-11-06T10:00:00+08:00",
+      "price_checked_at": "2026-11-06T10:00:00+08:00",
+      "current_price": 30.18,
+      "current_asof": "2026-11-06T10:00:00+08:00",
+      "current_checked_at": "2026-11-06T10:00:00+08:00",
+      "price_collected_at": "2026-11-06T10:00:00+08:00",
+      "current_change_pct": 0.6,
+      "rating": "unrated",
+      "score": 64.1,
+      "score_status": "provisional",
+      "provenance": "backfilled",
+      "provider": "demo",
+      "model": "fictional-fixture",
+      "test_mode": true,
+      "demo": true,
+      "horizons": {
+        "3": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "7": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "15": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "30": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "60": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        },
+        "90": {
+          "state": "pending",
+          "sessions": 1,
+          "evaluable": false
+        }
+      }
+    }
+  ],
+  "horizons": [
+    3,
+    7,
+    15,
+    30,
+    60,
+    90
+  ],
+  "method": {
+    "basis": "虚构演示数据，不代表实际收益",
+    "alignment": "解读时点与冻结记录分开保存",
+    "limits": "仅演示排序与弹窗。"
+  },
+  "demo": true
+}
