@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>解读报告 · 股票财报自动采集解读系统</title>
+  <link rel="stylesheet" href="./site.css?v=20261021-5">
+  <link rel="stylesheet" href="./report-view.css?v=20261023-2">
+  <link rel="stylesheet" href="./reports-page.css?v=20261021-5">
+</head>
+<body class="library-page">
+  <div class="app">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand"><span class="brand-mark">↗</span><span><strong>股票财报自动采集解读系统</strong><small>财报 · 行业 · 交易</small></span></div>
+      <div class="nav-title">工作区</div>
+      <nav class="nav">
+        <a href="./#overview"><span class="icon">◫</span>总览</a>
+        <a href="./reports.html?view=watchlist" id="watchlistNav"><span class="icon">☆</span>我的关注</a>
+        <a href="./reports.html" id="reportsNav" class="active" aria-current="page"><span class="icon">⌕</span>解读报告</a>
+        <a href="./tracking.html"><span class="icon">▦</span>解读追踪</a>
+        <a href="./filings.html"><span class="icon">▥</span>财报原文</a>
+        <a href="./settings.html"><span class="icon">⚙</span>设置</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="online-dot"></span><span>本机研究资料</span></div>
+    </aside>
+    <main>
+      <div class="page">
+        <header class="topbar"><div class="crumb">股票财报自动采集解读系统 <span aria-hidden="true">/</span> <strong>解读报告</strong></div><div class="top-actions"><button class="btn" id="watchlistManage" type="button" hidden>添加关注</button><a class="btn" href="./#overview">返回总览</a></div></header>
+        <section class="section reports-page" aria-labelledby="reportsTitle">
+          <div class="section-head"><div><h1 id="reportsTitle">解读报告</h1><p>按关注、综合推荐和解读时间查看研究结论；点开报告可核对财务指标、评分依据及财报原文。<a href="./filings.html">浏览财报原文库 ↗</a></p></div><button class="btn small" id="exportBtn" type="button">导出本地报告</button></div>
+          <div class="reports-view-tabs" role="tablist" aria-label="报告视图">
+            <button type="button" role="tab" data-view="all" aria-selected="true">全部</button>
+            <button type="button" role="tab" data-view="watchlist" aria-selected="false">我的关注</button>
+            <button type="button" role="tab" data-view="recommended" aria-selected="false">近期推荐</button>
+            <button type="button" role="tab" data-view="recent" aria-selected="false">近期解读</button>
+          </div>
+          <div class="reports-view-note" id="viewNote" role="status"></div>
+          <p class="subtle" id="historicalLoadState" role="status"></p>
+          <details id="researchQuality" class="research-quality"><summary>数据补齐情况</summary><div id="researchQualityBody">正在读取数据缺口</div></details>
+          <div class="card library">
+            <div class="card-top"><h2 id="viewTitle">全部</h2><div class="research-sort-controls"><span class="subtle" id="resultCount">正在读取报告</span><select id="researchSort" class="field" aria-label="研究评分排序"><option value="date">解读日期 · 最新优先</option><option value="score">原规则评分 · 降序</option><option value="research_quality">财务质量 · 降序</option><option value="research_growth">成长与财报变化 · 降序</option><option value="research_industry">行业与竞争优势 · 降序</option><option value="research_valuation">估值与安全边际 · 降序</option><option value="research_attention">热点与市场关注 · 降序</option><option value="research_timing">交易时机 · 降序</option><option value="research_short">短期关注分 · 降序</option><option value="research_medium">中期关注分 · 降序</option></select></div></div>
+            <div class="report-toolbar">
+              <input id="search" class="field" type="search" placeholder="搜索代码、公司、行业、热点或结论" aria-label="搜索报告">
+              <select id="industryFilter" class="field" aria-label="行业"><option value="">全部行业</option></select>
+              <select id="periodFilter" class="field" aria-label="报告期"><option value="">全部报告期</option></select>
+              <select id="topicFilter" class="field" aria-label="热点"><option value="">全部热点</option></select>
+              <select id="evidenceFilter" class="field" aria-label="证据状态"><option value="">全部证据状态</option><option value="insufficient">证据不足</option><option value="sufficient">证据充分</option></select>
+              <input id="dateFilter" class="field" type="date" aria-label="解读日期">
+              <button class="btn small" id="resetFilters" type="button">重置</button>
+            </div>
+            <div class="tabs" role="tablist" aria-label="评级筛选">
+              <button type="button" class="tab active" data-rating="" role="tab" aria-selected="true">全部</button>
+              <button type="button" class="tab" data-rating="buy" role="tab" aria-selected="false">买入</button>
+              <button type="button" class="tab" data-rating="overweight" role="tab" aria-selected="false">增持</button>
+              <button type="button" class="tab" data-rating="neutral" role="tab" aria-selected="false">中性</button>
+              <button type="button" class="tab" data-rating="underweight" role="tab" aria-selected="false">减持</button>
+              <button type="button" class="tab" data-rating="sell" role="tab" aria-selected="false">卖出</button>
+              <button type="button" class="tab" data-rating="unrated" role="tab" aria-selected="false">未评级</button>
+            </div>
+            <p id="scoreCoverageNote" class="subtle" role="status"></p>
+            <div class="table-wrap"><table class="report-table"><thead><tr><th>公司</th><th>核心结论</th><th>报告期</th><th>评级</th><th aria-sort="none"><button type="button" class="report-sort" data-report-sort="score" aria-pressed="false" title="按买入评分从高到低排序">买入评分 <span class="sort-indicator" aria-hidden="true">⇣</span></button></th><th aria-sort="descending"><button type="button" class="report-sort" data-report-sort="date" aria-pressed="true" title="按解读时间从新到旧排序">解读日期 <span class="sort-indicator" aria-hidden="true">↓</span></button></th><th>操作</th></tr></thead><tbody id="reportRows"></tbody></table></div>
+            <div id="libraryEmpty" class="empty" hidden><div class="empty-graphic">⌕</div><strong>暂无匹配报告</strong><p id="emptyReason">调整筛选条件后再查看。</p></div>
+            <nav id="reportPagination" class="pagination" aria-label="解读报告翻页" hidden><span id="reportPageRange" class="pagination-range"></span><div class="pagination-actions"><button id="reportPrev" class="btn small" type="button">上一页</button><span id="reportPageInfo" class="pagination-page" aria-live="polite"></span><button id="reportNext" class="btn small" type="button">下一页</button></div></nav>
+          </div>
+        </section>
+        <footer class="footer"><span>股票财报自动采集解读系统 · 本地研究工作区</span><span>研究资料保存在本机</span></footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="watchlistDialog" aria-labelledby="watchlistTitle">
+    <div class="modal-head"><div><h2 id="watchlistTitle">添加关注</h2><div class="subtle">管理关注股票；新财报优先下载和解读，关注不代表买入评级。</div></div><button class="btn small" id="watchlistClose" type="button" aria-label="关闭">✕</button></div>
+    <div class="modal-body">
+      <form id="watchlistForm" class="watchlist-form"><label for="watchlistInput">股票代码或公司名称</label><input id="watchlistInput" class="field" type="text" maxlength="32" autocomplete="off" placeholder="输入6位股票代码或完整公司名称" required><button id="watchlistAdd" class="btn primary" type="submit">添加关注</button></form>
+      <p class="subtle watchlist-help">支持股票代码、简称和已收录的公司全称，可从候选列表选择。优先查询本机证券名录，缺失时补查公开名录；输入内容和关注清单不向来源网站提交。</p>
+      <p id="watchlistMessage" class="subtle" role="status" aria-live="polite"></p>
+      <p class="subtle" id="watchlistCount">正在读取关注列表</p>
+      <div class="table-wrap"><table class="watchlist-table"><thead><tr><th>公司</th><th>最近财报</th><th>处理状态</th><th>最新解读</th><th>操作</th></tr></thead><tbody id="watchlistRows"></tbody></table></div>
+      <div id="watchlistEmpty" class="empty"><div class="empty-graphic">☆</div><strong>还没有关注股票</strong><p>添加后，新发现的财报将优先下载和解读。</p></div>
+    </div>
+    <div class="modal-actions"><button type="button" class="btn" id="watchlistCloseBottom">关闭</button></div>
+  </dialog>
+  <dialog id="detailDialog" aria-labelledby="detailTitle">
+    <div class="modal-head"><div class="report-heading"><h2 id="detailTitle">报告详情</h2><div id="detailMetadata" class="report-heading-meta"></div><div class="subtle">结论 · 指标 · 风险与证据</div></div><div id="detailAssessment"></div><button class="btn small" type="button" id="closeDetail" aria-label="关闭">✕</button></div>
+    <div class="modal-body" id="detailBody"></div>
+    <div class="modal-actions"><button type="button" class="btn" id="closeDetailBottom">关闭</button></div>
+  </dialog>
+  <script src="./report-view.js?v=20261023-2"></script>
+  <script src="./stock-watch-action.js?v=20261021-5"></script>
+  <script src="./report-collections.js?v=20261021-4"></script>
+  <script src="./pagination.js?v=20261018-1"></script>
+  <script src="./reports-page.js?v=20261022-1" defer></script>
+  <script src="./watchlist.js?v=20261021-2" defer></script>
+  <script src="./research-quality.js?v=20261019-1" defer></script>
+</body>
+</html>

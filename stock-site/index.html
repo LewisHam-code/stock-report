@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>股票财报自动采集解读系统 · 财报与交易研究</title>
+  <link rel="stylesheet" href="./site.css?v=20261021-5">
+  <link rel="stylesheet" href="./research-home.css?v=20261021-2">
+  <link rel="stylesheet" href="./report-view.css?v=20261023-2">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand"><span class="brand-mark">↗</span><span><strong>股票财报自动采集解读系统</strong><small>财报 · 行业 · 交易</small></span></div>
+      <div class="nav-title">工作区</div>
+      <nav class="nav">
+        <a href="#overview" class="active"><span class="icon">◫</span>总览</a>
+        <a href="./reports.html?view=watchlist"><span class="icon">☆</span>我的关注</a>
+        <a href="./reports.html"><span class="icon">⌕</span>解读报告</a>
+        <a href="./tracking.html"><span class="icon">▦</span>解读追踪</a>
+        <a href="./filings.html"><span class="icon">▥</span>财报原文</a>
+        <a href="./settings.html"><span class="icon">⚙</span>设置</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="online-dot"></span><span id="automationStatus">正在读取运行状态</span><br><span id="dataTimestamp">本机研究资料</span></div>
+    </aside>
+    <main>
+      <div class="page">
+        <header class="topbar">
+          <div class="crumb">研究工作区 <span aria-hidden="true">/</span> <strong>总览</strong></div>
+          <div class="top-actions">
+            <span class="date-label" id="today"></span>
+            <button class="btn" id="importBtn" type="button">导入报告</button>
+            <button class="btn primary" id="newBtn" type="button">＋ 新增解读</button>
+          </div>
+        </header>
+        <section id="overview" class="hero">
+          <div class="hero-main">
+            <span class="eyebrow">AUTOMATED COLLECTION &amp; AI ANALYSIS</span>
+            <h1>从财报线索，到可验证的投资判断</h1>
+            <p>把公司业绩、行业景气、估值和交易信号放在同一张研究桌上。结论先行，证据与风险随时可追溯。</p>
+            <div class="hero-note">● 研究评级是分析结果，不代表实际成交建议</div>
+            <div class="hero-art" aria-hidden="true"></div>
+          </div>
+          <div class="hero-side">
+            <div class="panel-kicker">最新研究结论</div>
+            <div id="latestContent"><h2>等待第一份报告</h2><p>导入已有解读，或手动新增一份报告。系统不会生成未经核实的股票结论。</p></div>
+            <span class="status-pill" id="latestStatus">○ 尚无已验证报告</span>
+          </div>
+        </section>
+        <div class="stats" aria-label="报告统计">
+          <div class="stat"><span class="label">已收录财报原文</span><strong id="statReports">0</strong><small>按公告编号去重</small></div>
+          <div class="stat"><span class="label">覆盖公司</span><strong id="statCompanies">0</strong><small>按股票代码去重</small></div>
+          <div class="stat"><span class="label">本周披露</span><strong id="statWeekly">0</strong><small>按原文披露日期计算</small></div>
+          <div class="stat"><span class="label">已有研究解读</span><strong id="statBuy">0</strong><small>财报归档不等于评级</small></div>
+        </div>
+        <section class="section" aria-label="研究动态">
+          <div class="section-head"><div><h2>研究动态</h2><p>关注股票、符合推荐门槛的研究，以及最新解读</p></div></div>
+          <div class="research-grid">
+            <div id="watchlist" class="card card-pad research-card"><div class="card-top"><h3>我的关注</h3><div class="research-card-actions"><button class="btn small" id="watchlistManage" type="button">添加关注</button><a class="link-btn" href="./reports.html?view=watchlist">更多 →</a></div></div><p class="subtle research-card-note" id="watchlistSummary">正在读取关注列表</p><div id="watchlistReports" class="research-items"></div></div>
+            <div class="card card-pad research-card"><div class="card-top"><h3>近期推荐</h3><a class="link-btn" href="./reports.html?view=recommended">更多 →</a></div><p class="subtle research-card-note" id="recommendSummary">正式评级、成长和证据综合筛选</p><div id="recommendedReports" class="research-items"></div></div>
+            <div class="card card-pad research-card"><div class="card-top"><h3>近期解读</h3><a class="link-btn" href="./reports.html?view=recent">更多 →</a></div><p class="subtle research-card-note" id="recentSummary">正在读取解读报告</p><div id="recentReports" class="research-items"></div></div>
+          </div>
+        </section>
+        <section id="digest" class="section">
+          <div class="section-head"><div><h2>每日 / 每周解读</h2><p>根据已收录报告自动汇总数量和评级；不自动编造观点。</p></div></div>
+          <div class="digest-grid">
+            <div class="card card-pad digest-card"><div class="digest-head"><span class="badge rating-buy">关注</span><h3>我的关注</h3><a class="link-btn digest-more" href="./reports.html?view=watchlist">更多 →</a></div><p class="subtle digest-summary" id="watchedDigestSummary">正在读取关注列表</p><ul class="digest-list" id="watchedDigestList"></ul></div>
+            <div class="card card-pad digest-card"><div class="digest-head"><span class="badge rating-buy">今日</span><h3 id="dailyTitle">今日研究简报</h3></div><p class="subtle digest-summary" id="dailySummary"></p><ul class="digest-list" id="dailyList"></ul></div>
+            <div class="card card-pad digest-card"><div class="digest-head"><span class="badge rating-watch">本周</span><h3 id="weeklyTitle">本周研究回顾</h3></div><p class="subtle digest-summary" id="weeklySummary"></p><ul class="digest-list" id="weeklyList"></ul></div>
+          </div>
+        </section>
+        <section id="monitor" class="section">
+          <div class="section-head"><div><h2>财报监测流程</h2><p>从新披露公告到研究结论的运行流程。当前状态如实显示。</p></div></div>
+          <div class="monitor-grid">
+            <div class="card monitor-card"><span class="step">01 · DOCUMENTS</span><h3>公告与财报</h3><p>分日分页采集年报、半年报和季报，按公告编号去重，保留原文校验值。</p><footer id="scanStatus">正在读取采集状态</footer></div>
+            <div class="card monitor-card"><span class="step">02 · ANALYSIS</span><h3>财务与行业验证</h3><p>提取财报页码与引文，结合历史财务、现金流和外部行业来源；缺失证据明确列出。</p><footer id="analysisStatus">正在读取解读队列</footer></div>
+            <div class="card monitor-card"><span class="step">03 · RATING</span><h3>估值与交易评级</h3><p>基于证据门槛、估值与交易信号形成研究评价；评级与证据状态分别显示。</p><footer id="ratingStatus">正在读取模型与发布状态</footer></div>
+          </div>
+        </section>
+        <section id="method" class="section">
+          <div class="section-head"><div><h2>评级与证据框架</h2><p>把企业质量、股票价格和交易机会分开判断。</p></div></div>
+          <div class="method-list">
+            <div class="card method"><span class="num">01</span><h3>成长与盈利质量</h3><p>营收、扣非利润、单季度加速度、毛利率、经营现金流、应收和存货。</p></div>
+            <div class="card method"><span class="num">02</span><h3>行业与竞争</h3><p>需求、供给、价格、订单、份额和新产品进展，区分口径与可验证事实。</p></div>
+            <div class="card method"><span class="num">03</span><h3>估值与市场</h3><p>当前股价、估值区间、历史比较、成交与趋势，评估安全边际和买点。</p></div>
+            <div class="card method"><span class="num">04</span><h3>风险与失效条件</h3><p>下行情景、反证、关键监测指标与仓位约束，披露结论可能失效的条件。</p></div>
+          </div>
+          <div class="notice"><b>百分制买入评分：</b>质量 30 分 + 成长 25 分 + 估值 20 分 + 动量 15 分 + 行业 10 分，再扣除风险分，最高 100 分。参考 AAII、MSCI 和 Piotroski 等公开方法设计本项目规则；固定阈值与权重尚未完成行业标准化和样本外验证。资料不齐时显示保守下限、待补齐区间和覆盖率，不将缺失项造成的低分当成公司质量差；详情可查看“为何未评级”和评分拆解。</div>
+          <div class="notice"><b>研究评级：</b>买入 → 增持 → 中性 → 减持 → 卖出。证据充分时，评分≥80且有买点为买入，≥65为增持，≥45为中性，≥25为减持，其余为卖出；风险约束可下调评级。证据不足时显示未评级，不将资料缺口解释为中性。属于本系统规则分档，并非券商收益预测或实际交易指令，阈值尚未经样本外验证。</div>
+        </section>
+        <footer class="footer"><span>股票财报自动采集解读系统 · 本地研究工作区</span><span>研究资料保存在本机；运行状态与数据时间见监测流程</span></footer>
+      </div>
+    </main>
+  </div>
+  <input id="importFile" type="file" accept=".json,application/json" hidden>
+  <dialog id="watchlistDialog" aria-labelledby="watchlistTitle">
+    <div class="modal-head"><div><h2 id="watchlistTitle">添加关注</h2><div class="subtle">管理关注股票；新财报优先下载和解读，关注不代表买入评级。</div></div><button class="btn small" id="watchlistClose" type="button" aria-label="关闭">✕</button></div>
+    <div class="modal-body">
+      <form id="watchlistForm" class="watchlist-form"><label for="watchlistInput">股票代码或公司名称</label><input id="watchlistInput" class="field" type="text" maxlength="32" autocomplete="off" placeholder="输入6位股票代码或完整公司名称" required><button id="watchlistAdd" class="btn primary" type="submit">添加关注</button></form>
+      <p class="subtle watchlist-help">支持股票代码、简称和已收录的公司全称，可从候选列表选择。优先查询本机证券名录，缺失时补查公开名录；输入内容和关注清单不向来源网站提交。</p>
+      <p id="watchlistMessage" class="subtle" role="status" aria-live="polite"></p>
+      <p class="subtle" id="watchlistCount">正在读取关注列表</p>
+      <div class="table-wrap"><table class="watchlist-table"><thead><tr><th>公司</th><th>最近财报</th><th>处理状态</th><th>最新解读</th><th>操作</th></tr></thead><tbody id="watchlistRows"></tbody></table></div>
+      <div id="watchlistEmpty" class="empty"><div class="empty-graphic">☆</div><strong>还没有关注股票</strong><p>添加后，新发现的财报将优先下载和解读。</p></div>
+    </div>
+    <div class="modal-actions"><button type="button" class="btn" id="watchlistCloseBottom">关闭</button></div>
+  </dialog>
+  <dialog id="newDialog" aria-labelledby="newTitle">
+    <form id="reportForm" novalidate>
+      <div class="modal-head"><div><h2 id="newTitle">新增财报解读</h2><div class="subtle">结论先行，并填写能够复核的证据。</div></div><button class="btn small" type="button" data-close="newDialog" aria-label="关闭">✕</button></div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <label class="form-label">股票代码 *<input class="field" name="code" required maxlength="9" placeholder="例如 600000"></label>
+          <label class="form-label">公司名称 *<input class="field" name="company" required maxlength="40"></label>
+          <label class="form-label">所属行业 *<input class="field" name="industry" required maxlength="40"></label>
+          <label class="form-label">报告期 *<input class="field" name="period" required maxlength="40" placeholder="例如 2026 年三季报"></label>
+          <label class="form-label">解读日期 *<input class="field" name="date" type="date" required></label>
+          <label class="form-label">研究评级 *<select class="field" name="rating" required><option value="unrated">未评级</option><option value="buy">买入</option><option value="overweight">增持</option><option value="neutral">中性</option><option value="underweight">减持</option><option value="sell">卖出</option></select></label>
+          <label class="form-label full">热点标签<input class="field" name="topics" maxlength="120" placeholder="用顿号或逗号分隔"></label>
+          <label class="form-label full">结论摘要 *<textarea name="conclusion" required maxlength="500" placeholder="先写结论，再写原因"></textarea></label>
+          <label class="form-label full">支持证据<textarea name="evidence" maxlength="1500" placeholder="财务数据、行业数据及其出处"></textarea></label>
+          <label class="form-label full">估值与交易条件<textarea name="valuation" maxlength="1000" placeholder="股价、估值、近期交易、拟观察的买点"></textarea></label>
+          <label class="form-label full">风险与失效条件<textarea name="risks" maxlength="1000"></textarea></label>
+          <label class="form-label full">财报原文链接<input class="field" name="source" type="url" placeholder="https://..."></label>
+        </div>
+        <div class="error" id="formError" role="alert"></div>
+      </div>
+      <div class="modal-actions"><button type="button" class="btn" data-close="newDialog">取消</button><button type="submit" class="btn primary">保存本地报告</button></div>
+    </form>
+  </dialog>
+  <script src="./report-view.js?v=20261023-2"></script>
+  <script src="./stock-watch-action.js?v=20261021-5"></script>
+  <script>
+    (() => {
+      'use strict';
+      const STORE = 'stock-research-local-v1';
+      const ratings = {buy:'买入',overweight:'增持',neutral:'中性',underweight:'减持',sell:'卖出',unrated:'未评级'};
+      const $ = (id) => document.getElementById(id);
+      const today = new Date();
+      const localDate = (d) => [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+      const todayString = localDate(today);
+      $('today').textContent = new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(today);
+      $('reportForm').elements.date.value = todayString;
+      let reports = [];
+      let systemReports = [];
+      let filings = [];
+      const safe = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const isDate = (s) => { if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false; const d=new Date(s+'T00:00:00'); return !Number.isNaN(d.getTime()) && localDate(d)===s; };
+      const isUrl = (s) => { try { const u = new URL(s); return ['https:','http:'].includes(u.protocol); } catch { return false; } };
+      const normalize = (r) => {
+        if (!r || typeof r !== 'object') return null;
+        const code = String(r.code ?? '').trim(), company = String(r.company ?? '').trim(), industry = String(r.industry ?? '').trim();
+        const date = String(r.date ?? '').trim(), period = String(r.period ?? '').trim(), conclusion = String(r.conclusion ?? '').trim();
+        if (!/^\d{6}(?:\.(?:SH|SZ|BJ))?$/i.test(code) || !company || !industry || !isDate(date) || !period || !conclusion) return null;
+        const rating = ratings[r.rating] ? r.rating : (r.score_status==='provisional'?'unrated':({watch:'neutral',avoid:'underweight',insufficient:'unrated'}[r.rating]||'unrated'));
+        const evidence_status=r.evidence_status||(r.score_status==='calculated'&&rating!=='unrated'?'sufficient':'insufficient');
+        const topics = Array.isArray(r.topics) ? r.topics.map(String).map(x=>x.trim()).filter(Boolean).slice(0,12) : [];
+        const source = String(r.source ?? '').trim();
+        return {id:String(r.id || (code+'-'+date+'-'+period)),code,company,industry,date,period,rating,evidence_status,topics,conclusion,
+          evidence:String(r.evidence ?? '').trim(),valuation:String(r.valuation ?? '').trim(),risks:String(r.risks ?? '').trim(),
+          source:isUrl(source)?source:'',test_mode:Boolean(r.test_mode),provider:String(r.provider||''),model:String(r.model||''),generated_at:Number.isFinite(Date.parse(r.generated_at))?String(r.generated_at):date+'T00:00:00+08:00',
+          detail_url:/^\.\/data\/report-details\/[a-zA-Z0-9-]+\.json$/.test(String(r.detail_url||''))?r.detail_url:'',score:typeof r.score==='number'&&Number.isFinite(r.score)&&r.score>=0&&r.score<=100?r.score:null,score_coverage:typeof r.score_coverage==='number'?r.score_coverage:null,score_status:r.score_status==='calculated'?'calculated':'provisional',score_range:Array.isArray(r.score_range)&&r.score_range.length===2&&r.score_range.every(v=>typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=100)?r.score_range:null,rating_blockers:Array.isArray(r.rating_blockers)?r.rating_blockers.map(String):[]};
+      };
+      const getLocal = () => {try {const v=JSON.parse(localStorage.getItem(STORE)||'[]');return Array.isArray(v)?v.map(normalize).filter(Boolean):[]}catch{return []}};
+      const saveLocal = (items) => {try{localStorage.setItem(STORE,JSON.stringify(items));return true}catch{return false}};
+      const merge = (...groups) => {const map=new Map();groups.flat().forEach(r=>{const n=normalize(r);if(n)map.set(n.id,n)});return [...map.values()].sort((a,b)=>b.date.localeCompare(a.date)||Date.parse(b.generated_at)-Date.parse(a.generated_at)||a.code.localeCompare(b.code))};
+      function render(){
+        $('statReports').textContent=filings.length;
+        $('statCompanies').textContent=new Set(filings.map(r=>r.code)).size;
+        const weekStart=new Date(today);weekStart.setHours(0,0,0,0);weekStart.setDate(weekStart.getDate()-((weekStart.getDay()+6)%7));
+        const weekString=localDate(weekStart);
+        $('statWeekly').textContent=filings.filter(r=>r.disclosed_at.slice(0,10)>=weekString&&r.disclosed_at.slice(0,10)<=todayString).length;
+        $('statBuy').textContent=reports.length;
+        const latest=reports[0];
+        $('latestContent').innerHTML=latest?'<h2>'+StockWatchAction.label(latest.company,latest.code,'stock-heading-company',{market:latest.market})+'<span>· '+safe(latest.period)+'</span>'+'</h2><p>'+safe(StockReportView.brief(latest.conclusion))+'</p>':'<h2>等待第一份报告</h2><p>导入已有解读，或手动新增一份报告。系统不会生成未经核实的股票结论。</p>';
+        $('latestStatus').textContent=latest?ratings[latest.rating]+' · '+latest.date:'○ 尚无已验证报告';
+        renderDigest('daily',reports.filter(r=>r.date===todayString));
+        renderDigest('weekly',reports.filter(r=>r.date>=weekString&&r.date<=todayString));
+        window.stockMainData={reports,systemReports,filings};
+        window.dispatchEvent(new Event('stock-main-data-rendered'));
+      }
+      function renderDigest(prefix,items){
+        $(prefix+'Summary').textContent=items.length?'收录 '+items.length+' 份解读，覆盖 '+new Set(items.map(r=>r.code)).size+' 家公司。以下是已录入的研究结论。':'暂无新报告。导入或新增解读后，会在这里汇总。';
+        $(prefix+'List').innerHTML=items.slice(0,4).map(r=>'<li><strong>'+StockWatchAction.label(r.company,r.code,'stock-digest-company')+'</strong><span>'+safe(ratings[r.rating])+'</span></li>').join('');
+      }
+      $('newBtn').addEventListener('click',()=>{$('formError').textContent='';$('newDialog').showModal()});
+      document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.close).close()));
+      $('reportForm').addEventListener('submit',e=>{
+        e.preventDefault();const f=new FormData(e.currentTarget);
+        const raw=Object.fromEntries(f.entries());raw.topics=String(raw.topics||'').split(/[、,，]/).map(s=>s.trim()).filter(Boolean);raw.id=raw.code+'-'+raw.date+'-'+raw.period;
+        const n=normalize(raw);if(!n){$('formError').textContent='请完整填写代码、公司、行业、报告期、日期和结论；股票代码须为 6 位数字。';return}
+        const prior=getLocal(), next=merge(prior.filter(r=>r.id!==n.id),n);
+        if(!saveLocal(next)){$('formError').textContent='浏览器无法保存本地数据，请检查存储设置。';return}
+        reports=merge(reports,n);render();$('newDialog').close();e.currentTarget.reset();e.currentTarget.elements.date.value=todayString;
+      });
+      $('importBtn').addEventListener('click',()=>$('importFile').click());
+      $('importFile').addEventListener('change',async e=>{
+        const file=e.target.files[0];if(!file)return;
+        try{const data=JSON.parse(await file.text());const list=Array.isArray(data)?data:Array.isArray(data.reports)?data.reports:null;if(!list)throw Error('JSON 须为报告数组，或包含 reports 数组。');
+          const valid=list.map(normalize).filter(Boolean);if(list.length&&valid.length===0)throw Error('没有符合格式的报告。');
+          const next=merge(getLocal(),valid);if(!saveLocal(next))throw Error('浏览器无法保存导入结果。');
+          reports=merge(reports,valid);render();alert('已导入 '+valid.length+' 份有效报告；无效记录已跳过。');
+        }catch(err){alert('导入失败：'+err.message)}finally{e.target.value=''}
+      });
+      const syncNav=()=>{const hash=location.hash||'#overview';if(hash==='#model-settings'){location.replace('./settings.html');return;}document.querySelectorAll('.nav a').forEach(a=>{const active=a.getAttribute('href')===hash;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})};
+      window.addEventListener('hashchange',syncNav);syncNav();
+      fetch('./data/reports.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('本地报告文件不可用');return r.json()}).then(data=>{const list=Array.isArray(data)?data:data.reports;systemReports=merge(Array.isArray(list)?list:[]);reports=merge(systemReports,getLocal());render()}).catch(()=>{systemReports=[];reports=merge(getLocal());render()});
+      const officialFiling=f=>{if(!f.market_name||!isUrl(f.source_url))return false;const u=new URL(f.source_url);return u.protocol==='https:'&&['static.cninfo.com.cn','static.sse.com.cn','www.sse.com.cn','disc.static.szse.cn','www.bse.cn','bse.cn'].includes(u.hostname)&&!u.username&&!u.password&&u.pathname.toLowerCase().endsWith('.pdf')};
+      fetch('./data/filings.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('原文索引不可用');return r.json()}).then(data=>{filings=Array.isArray(data.filings)?data.filings.filter(officialFiling):[];render()}).catch(()=>{filings=[];render()});
+      window.addEventListener('stock-data-updated',event=>{const data=event.detail;if(Array.isArray(data.reports)){systemReports=merge(data.reports);reports=merge(systemReports,getLocal())}if(Array.isArray(data.filings))filings=data.filings.filter(officialFiling);render()});
+    })();
+  </script>
+  <script src="./report-collections.js?v=20261020-2"></script>
+  <script src="./research-home.js?v=20261021-3" defer></script>
+  <script src="./watchlist.js?v=20261021-2" defer></script>
+  <script src="./automation-status.js?v=20261021-1" defer></script>
+</body>
+</html>

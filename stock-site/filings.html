@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>财报原文库 · 股票财报自动采集解读系统</title>
+  <link rel="stylesheet" href="./site.css?v=20261021-5">
+  <link rel="stylesheet" href="./reports-page.css?v=20261018-3">
+</head>
+<body class="library-page">
+  <div class="app">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand"><span class="brand-mark">↗</span><span><strong>股票财报自动采集解读系统</strong><small>财报 · 行业 · 交易</small></span></div>
+      <div class="nav-title">工作区</div>
+      <nav class="nav">
+        <a href="./#overview"><span class="icon">◫</span>总览</a>
+        <a href="./reports.html?view=watchlist"><span class="icon">☆</span>我的关注</a>
+        <a href="./reports.html"><span class="icon">⌕</span>解读报告</a>
+        <a href="./tracking.html"><span class="icon">▦</span>解读追踪</a>
+        <a href="./filings.html" class="active" aria-current="page"><span class="icon">▥</span>财报原文</a>
+        <a href="./settings.html"><span class="icon">⚙</span>设置</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="online-dot"></span><span>本机研究资料</span></div>
+    </aside>
+    <main>
+      <div class="page">
+        <header class="topbar"><div class="crumb">股票财报自动采集解读系统 <span aria-hidden="true">/</span> <strong>财报原文</strong></div><a class="btn" href="./reports.html">查看解读报告 →</a></header>
+        <section class="section reports-page" aria-labelledby="filingsTitle">
+          <div class="section-head"><div><h1 id="filingsTitle">财报原文库</h1><p>上市公司披露的年报、半年报和季报 PDF，供核查解读依据。原文归档不代表投资判断。</p></div><span class="subtle" id="filingCount">正在读取原文</span></div>
+          <p class="reports-view-note">收录沪深主板 A 股、创业板、科创板与北交所上市股票；创业板、科创板及北交所需开通相应交易权限。B 股和新三板暂缓。</p>
+          <div class="card library">
+            <div class="card-top"><h2>全部原文</h2><span class="subtle" id="filingResultCount">正在读取</span></div>
+            <div class="filing-toolbar">
+              <input id="filingSearch" class="field" type="search" placeholder="搜索代码、公司名称或报告标题" aria-label="搜索财报原文">
+              <select id="filingMarket" class="field" aria-label="市场"><option value="">全部市场</option><option value="上海证券交易所主板A股">上海证券交易所主板A股</option><option value="深圳证券交易所主板A股">深圳证券交易所主板A股</option><option value="深圳证券交易所创业板">深圳证券交易所创业板</option><option value="上海证券交易所科创板">上海证券交易所科创板</option><option value="北京证券交易所股票">北京证券交易所股票</option></select>
+              <select id="filingIndustry" class="field" aria-label="行业"><option value="">全部行业</option></select>
+              <input id="filingDate" class="field" type="date" aria-label="披露日期">
+              <button class="btn small" id="filingReset" type="button">重置</button>
+            </div>
+            <div class="table-wrap"><table><thead><tr><th>公司</th><th>市场 / 行业</th><th>报告期</th><th>披露日期</th><th>状态</th><th>原文 / 解读</th></tr></thead><tbody id="filingRows"></tbody></table></div>
+            <div id="filingEmpty" class="empty" hidden><div class="empty-graphic">▥</div><strong>暂无匹配财报</strong><p id="filingEmptyReason">可调整筛选条件。</p></div>
+            <nav id="filingPagination" class="pagination" aria-label="财报原文翻页" hidden><span id="filingPageRange" class="pagination-range"></span><div class="pagination-actions"><button id="filingPrev" class="btn small" type="button">上一页</button><span id="filingPageInfo" class="pagination-page" aria-live="polite"></span><button id="filingNext" class="btn small" type="button">下一页</button></div></nav>
+          </div>
+        </section>
+        <footer class="footer"><span>股票财报自动采集解读系统 · 本地研究工作区</span><span>研究资料保存在本机</span></footer>
+      </div>
+    </main>
+  </div>
+  <script src="./pagination.js?v=20261018-1"></script>
+  <script src="./stock-watch-action.js?v=20261021-5"></script>
+  <script src="./filings-page.js?v=20261021-2" defer></script>
+</body>
+</html>

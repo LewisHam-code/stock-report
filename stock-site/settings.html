@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>设置 · 股票财报自动采集解读系统</title>
+  <link rel="stylesheet" href="./site.css?v=20261021-5">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand"><span class="brand-mark">↗</span><span><strong>股票财报自动采集解读系统</strong><small>财报 · 行业 · 交易</small></span></div>
+      <div class="nav-title">工作区</div>
+      <nav class="nav">
+        <a href="./#overview"><span class="icon">◫</span>总览</a>
+        <a href="./reports.html?view=watchlist"><span class="icon">☆</span>我的关注</a>
+        <a href="./reports.html"><span class="icon">⌕</span>解读报告</a>
+        <a href="./tracking.html"><span class="icon">▦</span>解读追踪</a>
+        <a href="./filings.html"><span class="icon">▥</span>财报原文</a>
+        <a href="./settings.html" class="active" aria-current="page"><span class="icon">⚙</span>设置</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="online-dot"></span><span>本机模型设置</span><br><span>配置保存在本机</span></div>
+    </aside>
+    <main>
+      <div class="page">
+        <header class="topbar">
+          <div class="crumb">股票财报自动采集解读系统 <span aria-hidden="true">/</span> <strong>设置</strong></div>
+          <a class="btn" href="./reports.html">返回解读报告</a>
+        </header>
+        <section id="runtime-settings" class="section">
+          <div class="section-head"><div><h2>自动运行</h2><p>前台模式下，开启后按所选间隔运行；关闭服务后停止。macOS 可选安装系统定时任务。</p></div><span class="status-pill" id="runtimeState">正在检查后台</span></div>
+          <div class="card card-pad">
+            <form id="runtimeForm">
+              <label class="form-label"><input type="checkbox" id="automaticEnabled"> 开启定时采集与分析</label>
+              <div class="form-grid" style="margin-top:18px">
+                <label class="form-label">查新频率<select class="field" id="runInterval"><option value="5">每 5 分钟</option><option value="15">每 15 分钟</option><option value="30">每 30 分钟</option><option value="60">每小时</option><option value="120">每 2 小时</option><option value="360">每 6 小时</option><option value="720">每 12 小时</option><option value="1440">每天</option></select></label>
+                <label class="form-label">每日模型调用上限（0为不限）<input class="field" id="dailyCalls" type="number" min="0" max="10000" required></label>
+                <label class="form-label">每轮解读上限（0为不限）<input class="field" id="analysisLimit" type="number" min="0" max="20" required></label>
+                <label class="form-label">每轮下载上限（0为不限）<input class="field" id="downloadLimit" type="number" min="0" max="100" required></label>
+                <label class="form-label">同一财报重复解读<select class="field" id="narrativeRefresh"><option value="0">仅新财报或更正版本（最节省）</option><option value="7">每 7 天重新综合解读</option><option value="30">每 30 天重新综合解读</option></select></label>
+                <label class="form-label">模型解读时段<select class="field" id="modelTiming"><option value="idle">仅闲时解读（推荐）</option><option value="any">不限时段（可能产生高峰费用）</option></select></label>
+                <label class="form-label">财季精读同时处理份数<select class="field" id="quarterWorkers"><option value="1">1份</option><option value="2">2份</option><option value="5">5份</option><option value="10">10份</option><option value="15">15份</option><option value="20">20份</option></select></label>
+                <label class="form-label">每份累计预估上限（元）<input class="field" id="readingLimit" type="number" min="0.01" max="5" step="0.01" value="0.50" required></label>
+              </div>
+              <p class="subtle">公告检查、PDF 下载、文字提取、规则评分和网站发布不调用模型，消耗 0 token。首次解读通常调用两次模型；原文未变时复用财务提取，行情和规则评分仍自动更新。调用次数持续记录；设为0时不限制数量。查新、下载与解读独立运行。电脑需已登录、联网且处于唤醒状态。</p>
+              <p class="subtle" id="modelTimingState">闲时策略适用于已核实有峰谷定价的 DeepSeek 官方模型。高峰及开始前5分钟暂停新解读请求，保留队列，后续定时检查续跑；连接检查仍可使用。</p>
+              <button class="btn primary" id="saveRuntime" type="submit">保存运行设置</button>
+              <p id="runtimeMessage" class="subtle" role="status" aria-live="polite"></p>
+            </form>
+            <div class="notice" id="runtimeHealth">正在读取独立运行环境与系统任务状态……</div>
+            <p class="subtle" id="runtimeProgress"></p><p class="subtle" id="runtimeLastRun"></p><p class="subtle" id="runtimeIssues"></p>
+          </div>
+        </section>
+        <section id="data-sources" class="section">
+          <div class="section-head"><div><h2>数据来源</h2><p>财报优先使用所属市场官方披露渠道；行情使用东方财富与同花顺交叉核对。</p></div></div>
+          <div class="card card-pad"><p id="sourcePolicy">正在读取来源配置……</p><p id="disclosureSources" class="subtle"></p><p id="marketSources" class="subtle"></p><p class="subtle">个股新闻与第三方公告已接入按需获取和来源归档，尚未用于自动调整评级。历史报告保留生成时的原始行情来源。</p></div>
+        </section>
+        <section id="model-settings" class="section">
+          <div class="section-head"><div><h2>模型配置</h2><p>选择财报解读服务；密钥仅保存到本机私密配置。</p></div><span class="status-pill" id="modelConnection">正在连接本机设置服务</span></div>
+          <div class="card card-pad">
+            <form id="modelForm" autocomplete="off">
+              <div class="form-grid">
+                <label class="form-label">模型服务商<select class="field" id="modelProvider" name="provider"><option value="deepseek">deepseek</option><option value="openai">OpenAI</option><option value="anthropic">Anthropic</option><option value="gemini">Google Gemini</option></select></label>
+                <label class="form-label">可用模型<select class="field" id="modelName" name="model" required><option value="">正在读取可用模型……</option></select><span class="company-code" id="modelCatalogState">模型列表以服务商接口实际返回为准。</span></label>
+                <label class="form-label">接口协议<select class="field" id="modelProtocol"><option value="openai">OpenAI</option><option value="anthropic">Anthropic</option></select></label>
+                <label class="form-label">base_url<input class="field" id="modelBaseUrl" type="url" maxlength="500" required placeholder="https://api.deepseek.com"><span class="company-code">随接口协议自动填入；可以修改，程序自动拼接接口路径。</span></label>
+                <label id="customBaseConsentRow" class="form-label full" hidden><span><input id="customBaseConsent" type="checkbox"> 确认将本项密钥与公开财报发送至此自定义地址</span></label>
+                <label class="form-label full">API 密钥<input class="field" id="modelKey" name="api_key" type="password" autocomplete="new-password" maxlength="512" placeholder="输入服务商密钥；留空保留已保存的密钥"><span class="company-code" id="modelKeyState">正在检查配置状态</span></label>
+                <fieldset class="full" style="border:1px solid var(--line);border-radius:12px;padding:14px"><legend>模型用途</legend><label><input id="stageExtraction" type="checkbox" checked> 财务提取</label><label style="margin-left:18px"><input id="stageDeep" type="checkbox" checked> 精读</label><p id="modelReadingPolicy" class="subtle" style="margin-bottom:0">所有报告直接精读；下载财报和结构化采集不使用模型。</p></fieldset>
+              </div>
+              <p class="subtle" id="modelEndpoint">按所选基础地址和协议调用模型。</p><p class="subtle" id="modelBudget">下载与解读独立运行。模型调用可能产生服务商费用。</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:15px"><button type="submit" class="btn primary" id="saveModel">保存此模型</button><button type="button" class="btn" id="refreshModels">读取可用模型</button><button type="button" class="btn" id="newModelProfile">新增配置</button><button type="button" class="btn" id="testModel">检查连接</button><button type="button" class="btn" id="runPipeline">运行一次研究流程</button></div>
+              <p id="modelMessage" role="status" aria-live="polite" style="white-space:pre-wrap;line-height:1.7"></p>
+            </form>
+            <div style="border-top:1px solid var(--line);margin-top:22px;padding-top:20px"><div class="section-head" style="margin:0"><div><h3 style="margin:0 0 7px">已接入模型</h3><p>勾选即启用；各用途分别按从上到下的顺序备用，成功后停止。</p></div><span class="badge" id="savedModelCount">正在读取</span></div><div id="savedModelList" class="model-profile-list"></div><p id="modelRouteSummary" class="subtle" role="status" style="white-space:pre-line"></p></div>
+          </div>
+        </section>
+
+        <footer class="footer"><span>股票财报自动采集解读系统 · 设置</span><span>勾选和排序保存后，后续自动解读按新配置运行</span></footer>
+      </div>
+    </main>
+  </div>
+  <script src="./model-profiles.js?v=20261021-1" defer></script>
+  <script src="./runtime-settings.js?v=20261028-2" defer></script>
+  <script src="./data-sources.js?v=20261019-1" defer></script>
+</body>
+</html>

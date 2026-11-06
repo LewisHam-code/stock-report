@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>解读效果追踪 · 股票财报自动采集解读系统</title>
+  <link rel="stylesheet" href="./site.css?v=20261021-5">
+  <link rel="stylesheet" href="./reports-page.css?v=20261020-1">
+  <link rel="stylesheet" href="./report-view.css?v=20261023-2">
+  <link rel="stylesheet" href="./tracking.css?v=20261021-6">
+</head>
+<body class="library-page">
+  <div class="app">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand"><span class="brand-mark">↗</span><span><strong>股票财报自动采集解读系统</strong><small>财报 · 行业 · 交易</small></span></div>
+      <div class="nav-title">工作区</div>
+      <nav class="nav">
+        <a href="./#overview"><span class="icon">◫</span>总览</a>
+        <a href="./reports.html?view=watchlist"><span class="icon">☆</span>我的关注</a>
+        <a href="./reports.html"><span class="icon">⌕</span>解读报告</a>
+        <a href="./tracking.html" class="active" aria-current="page"><span class="icon">▦</span>解读追踪</a>
+        <a href="./filings.html"><span class="icon">▥</span>财报原文</a>
+        <a href="./settings.html"><span class="icon">⚙</span>设置</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="online-dot"></span><span>本机研究资料</span></div>
+    </aside>
+    <main><div class="page">
+      <header class="topbar"><div class="crumb">股票财报自动采集解读系统 <span aria-hidden="true">/</span> <strong>效果追踪</strong></div><a class="btn" href="./reports.html">查看解读报告 →</a></header>
+      <section class="section reports-page tracking-page" aria-labelledby="trackingTitle">
+        <div class="section-head"><div><h1 id="trackingTitle">解读效果追踪</h1><p>记录报告发布时的判断，观察之后的股价与相对大盘表现；这项统计用于检验分析方法。</p></div><span class="subtle" id="updatedAt">正在读取</span></div>
+        <div class="tracking-summary" aria-label="追踪概况">
+          <div class="card"><span>已解读报告</span><strong id="trackedCount">—</strong></div>
+          <div class="card"><span>所选期限已走满</span><strong id="matureCount">—</strong></div>
+          <div class="card"><span>可用于方向检验</span><strong id="eligibleCount">—</strong></div>
+          <div class="card"><span>方向吻合率</span><strong id="alignmentRate">—</strong></div>
+        </div>
+        <div class="card library tracking-panel">
+          <div class="card-top"><h2>追踪明细</h2></div>
+          <div class="tracking-filters">
+            <div class="reports-view-tabs" id="trackingViewTabs" role="tablist" aria-label="追踪股票范围"><button type="button" role="tab" data-tracking-view="all" aria-selected="true">全部</button><button type="button" role="tab" data-tracking-view="watchlist" aria-selected="false">我的关注</button><button type="button" role="tab" data-tracking-view="recommended" aria-selected="false">近期推荐</button><button type="button" role="tab" data-tracking-view="recent" aria-selected="false">近期解读</button></div>
+            <div class="tracking-period"><span class="subtle">观察期</span><div class="tracking-horizons" id="horizonButtons" role="group" aria-label="观察期限"></div></div>
+          </div>
+          <div class="tracking-context"><p id="trackingViewNote" class="reports-view-note" role="status"></p>
+            <details class="tracking-help"><summary>统计与行情说明</summary><div class="tracking-help-content"><p>观察期按交易日计算；首个入场参考为报告发布后的下一交易日开盘。只统计发布时已冻结完整评级和评分的报告。</p><p>最新价格在交易日上午和下午每30分钟向东方财富、同花顺采集并交叉核对；中午休市暂停，15:35最后采集一次，之后保留最近报价至下一交易日。涨幅以解读时股价为初始值，点击旁边图标查看价格走势。</p></div></details>
+          </div>
+          <p id="trackingStatus" class="subtle" role="status"></p>
+          <div class="table-wrap"><table class="tracking-table"><thead><tr><th aria-sort="descending"><button type="button" class="report-sort" data-tracking-sort="date" aria-pressed="true" title="按解读日期从新到旧排序">公司 / 解读日期 <span class="sort-indicator" aria-hidden="true">↓</span></button></th><th>解读时股价</th><th>最新价格</th><th aria-sort="none"><button type="button" class="report-sort" data-tracking-sort="change" aria-pressed="false" title="按涨幅从高到低排序">涨幅 % <span class="sort-indicator" aria-hidden="true">⇣</span></button></th><th aria-sort="none"><button type="button" class="report-sort" data-tracking-sort="score" aria-pressed="false" title="按当时评分从高到低排序，再次点击切换升序">当时评级 / 评分 <span class="sort-indicator" aria-hidden="true">⇣</span></button></th><th>所选期限表现</th><th>检验状态</th><th>解读报告</th></tr></thead><tbody id="trackingRows"></tbody></table></div>
+          <div id="trackingEmpty" class="empty" hidden><strong>暂无可追踪的解读</strong><p>发布解读报告后会自动进入这里。</p></div>
+          <nav class="pagination" id="trackingPagination" aria-label="效果追踪翻页" hidden><span id="trackingRange" class="pagination-range"></span><div class="pagination-actions"><button class="btn small" id="trackingPrev" type="button">上一页</button><span id="trackingPage" class="pagination-page"></span><button class="btn small" id="trackingNext" type="button">下一页</button></div></nav>
+        </div>
+        <div class="tracking-notes card library"><h2>分组检验与诊断线索</h2><div id="trackingBreakdown" class="tracking-breakdown"></div><p>上表的模式仅描述价格走势，不能直接认定财报识别、估值或行业判断哪一项出错。应回看对应报告的证据、反证和市场事件，再记录可证伪的原因。</p></div>
+        <div class="tracking-notes card library"><h2>如何判断与修正</h2><p id="trackingMethod"></p><p id="trackingLimits"></p><p>先核实行情与报告生成时点，再按评级、评分段、行业和报告期分组比较，避免只看整体平均。积累足够样本并做后续样本验证后，才讨论调整阈值或权重；系统不会自动改动分析模型。</p></div>
+      </section>
+      <footer class="footer"><span>股票财报自动采集解读系统 · 本地研究工作区</span><span>行情与评级时间均应逐条核对</span></footer>
+    </div></main>
+  </div>
+  <dialog id="trendDialog" aria-labelledby="trendTitle">
+    <div class="modal-head"><div><h2 id="trendTitle">股价走势</h2><p id="trendRange" class="subtle"></p></div><button type="button" class="btn small" id="closeTrend" aria-label="关闭走势图">✕</button></div>
+    <div class="modal-body"><div id="trendChart"></div><p id="trendQuoteNote" class="subtle"></p><p id="trendSource" class="subtle"></p><p class="subtle">起点使用已保存的解读价格基准；行情时点、采集时间及补录情况见上方说明。之后按每天收盘价绘制，当天未收盘时显示最新采集价。使用未复权实际价格，分红送转需另行核对；缺失日期不补造数据。观察期检验仍独立从下一交易日开始。</p></div>
+    <div class="modal-actions"><button type="button" class="btn" id="closeTrendBottom">关闭</button></div>
+  </dialog>
+  <dialog id="detailDialog" aria-labelledby="detailTitle">
+    <div class="modal-head"><div class="report-heading"><h2 id="detailTitle">解读报告</h2><div id="detailMetadata" class="report-heading-meta"></div><div class="subtle">结论 · 指标 · 风险与证据</div></div><div id="detailAssessment"></div><button class="btn small" type="button" id="closeDetail" aria-label="关闭解读报告">✕</button></div>
+    <div class="modal-body" id="detailBody"></div>
+    <div class="modal-actions"><button type="button" class="btn" id="closeDetailBottom">关闭</button></div>
+  </dialog>
+  <script src="./report-view.js?v=20261023-2"></script>
+  <script src="./stock-watch-action.js?v=20261021-5"></script>
+  <script src="./price-trend.js?v=20261021-9"></script>
+  <script src="./report-collections.js?v=20261020-2"></script>
+  <script src="./tracking-views.js?v=20261028-1"></script>
+  <script src="./tracking.js?v=20261028-1" defer></script>
+</body>
+</html>
