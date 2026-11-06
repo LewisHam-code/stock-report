@@ -1,0 +1,32 @@
+# Credentials and personal configuration
+.env
+.env.*
+!.env.example
+research-data/automation.json
+# Local databases, filings, logs, queues, archives and published real data
+storage/
+research-vault/
+research-data/db/
+research-data/filings/
+research-data/text/
+research-data/cache/
+research-data/backups/
+research-data/logs/
+research-data/work/
+research-data/deployment/
+research-data/*.lock
+!research-data/requirements.lock
+stock-site/data/
+stock-site/analysis/
+# Local tooling
+.venv/
+__pycache__/
+*.py[cod]
+.runtime/
+work/
+tmp/
+.DS_Store
+*.sqlite*
+*.db
+*.log
+*.zip
