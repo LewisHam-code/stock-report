@@ -1,0 +1,920 @@
+{
+  "id": "demo-report-2",
+  "document_id": "demo-doc-2",
+  "company": "示例软件（虚构）",
+  "code": "300001",
+  "market": "SZ",
+  "industry": "工业软件",
+  "period": "2026Q3",
+  "date": "2026-11-06",
+  "generated_at": "2026-11-06T10:00:00+08:00",
+  "rating": "unrated",
+  "score": 58.6,
+  "score_status": "provisional",
+  "score_coverage": 80,
+  "score_range": [
+    58.6,
+    78.6
+  ],
+  "evidence_status": "insufficient",
+  "conclusion": "虚构演示：单季扭亏并不代表全年盈利；关注毛利率修复和回款质量。",
+  "evidence": "仅用于展示界面。所有金额、评分和来源核对标识均由虚构样例构造。",
+  "valuation": "估值样例未接入真实市场数据。",
+  "risks": "全部为虚构样例，不能用于投资判断。",
+  "provider": "demo",
+  "model": "fictional-fixture",
+  "test_mode": true,
+  "demo": true,
+  "topics": [
+    "虚构演示"
+  ],
+  "detail_url": "./data/report-details/demo-report-2.json",
+  "source": "https://example.com/fictional-filing",
+  "original_interpreted_at": "2026-11-06T10:00:00+08:00",
+  "financial_analysis": {
+    "metrics": [
+      {
+        "metric": "revenue",
+        "value": 594391081.5,
+        "standard_value": 594391081.5,
+        "unit": "yuan",
+        "scope": "cumulative",
+        "period_end": "2026-09-30",
+        "verified": true,
+        "source_page": 2,
+        "verification_method": "pdf_table_column",
+        "quote": "虚构格式示例，并非真实财报证据。",
+        "demo": true
+      },
+      {
+        "metric": "net_profit",
+        "value": 91385739.0,
+        "standard_value": 91385739.0,
+        "unit": "yuan",
+        "scope": "cumulative",
+        "period_end": "2026-09-30",
+        "verified": true,
+        "source_page": 2,
+        "verification_method": "pdf_table_column",
+        "quote": "虚构格式示例，并非真实财报证据。",
+        "demo": true
+      },
+      {
+        "metric": "adjusted_profit",
+        "value": 82742971.5,
+        "standard_value": 82742971.5,
+        "unit": "yuan",
+        "scope": "cumulative",
+        "period_end": "2026-09-30",
+        "verified": true,
+        "source_page": 2,
+        "verification_method": "pdf_table_column",
+        "quote": "虚构格式示例，并非真实财报证据。",
+        "demo": true
+      },
+      {
+        "metric": "operating_cashflow",
+        "value": 103374144.0,
+        "standard_value": 103374144.0,
+        "unit": "yuan",
+        "scope": "cumulative",
+        "period_end": "2026-09-30",
+        "verified": true,
+        "source_page": 2,
+        "verification_method": "pdf_table_column",
+        "quote": "虚构格式示例，并非真实财报证据。",
+        "demo": true
+      },
+      {
+        "metric": "inventory",
+        "value": 148480065.0,
+        "standard_value": 148480065.0,
+        "unit": "yuan",
+        "scope": "instant",
+        "period_end": "2026-09-30",
+        "verified": true,
+        "source_page": 2,
+        "verification_method": "pdf_table_column",
+        "quote": "虚构格式示例，并非真实财报证据。",
+        "demo": true
+      },
+      {
+        "metric": "roe",
+        "value": 3.8,
+        "standard_value": 3.8,
+        "unit": "percentage",
+        "scope": "cumulative",
+        "period_end": "2026-09-30",
+        "verified": true,
+        "source_page": 2,
+        "verification_method": "pdf_table_column",
+        "quote": "虚构格式示例，并非真实财报证据。",
+        "demo": true
+      }
+    ],
+    "data_quality": {
+      "verified_count": 6,
+      "required_count": 6,
+      "expected_count": 6,
+      "total": 6,
+      "status": "complete",
+      "checked_at": "2026-11-06T10:00:00+08:00",
+      "note": "虚构界面样例，非真实核对",
+      "missing": [],
+      "applicable_fields": {
+        "revenue": "cumulative",
+        "net_profit": "cumulative",
+        "adjusted_profit": "cumulative",
+        "operating_cashflow": "cumulative",
+        "inventory": "instant",
+        "roe": "cumulative"
+      }
+    },
+    "sections": [],
+    "management_claims": []
+  },
+  "financial_comparisons": {
+    "period": "2026Q3",
+    "rows": [
+      {
+        "metric": "revenue",
+        "current": {
+          "metric": "revenue",
+          "value": 220144844.99999997,
+          "standard_value": 220144844.99999997,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "revenue",
+          "value": 179800200.0,
+          "standard_value": 179800200.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "revenue",
+          "value": 176115876.0,
+          "standard_value": 176115876.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_year_ago": {
+          "metric": "revenue",
+          "value": 152830170.0,
+          "standard_value": 152830170.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_previous": {
+          "metric": "revenue",
+          "value": 161820180.0,
+          "standard_value": 161820180.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "net_profit",
+        "current": {
+          "metric": "net_profit",
+          "value": 33846570.0,
+          "standard_value": 33846570.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "net_profit",
+          "value": 29815589.999999996,
+          "standard_value": 29815589.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "net_profit",
+          "value": 27077256.0,
+          "standard_value": 27077256.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_year_ago": {
+          "metric": "net_profit",
+          "value": 25343251.499999996,
+          "standard_value": 25343251.499999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_previous": {
+          "metric": "net_profit",
+          "value": 26834030.999999996,
+          "standard_value": 26834030.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "adjusted_profit",
+        "current": {
+          "metric": "adjusted_profit",
+          "value": 30645544.999999996,
+          "standard_value": 30645544.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "adjusted_profit",
+          "value": 25144864.999999996,
+          "standard_value": 25144864.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "adjusted_profit",
+          "value": 24516436.0,
+          "standard_value": 24516436.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_year_ago": {
+          "metric": "adjusted_profit",
+          "value": 21373135.249999996,
+          "standard_value": 21373135.249999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_previous": {
+          "metric": "adjusted_profit",
+          "value": 22630378.499999996,
+          "standard_value": 22630378.499999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "operating_cashflow",
+        "current": {
+          "metric": "operating_cashflow",
+          "value": 38286720.0,
+          "standard_value": 38286720.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "operating_cashflow",
+          "value": 32491869.999999996,
+          "standard_value": 32491869.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "operating_cashflow",
+          "value": 30629376.0,
+          "standard_value": 30629376.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_year_ago": {
+          "metric": "operating_cashflow",
+          "value": 27618089.499999996,
+          "standard_value": 27618089.499999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_previous": {
+          "metric": "operating_cashflow",
+          "value": 29242682.999999996,
+          "standard_value": 29242682.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "inventory",
+        "current": {
+          "metric": "inventory",
+          "value": 148480065.0,
+          "standard_value": 148480065.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "inventory",
+          "value": 140300000.0,
+          "standard_value": 140300000.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "inventory",
+          "value": 118784052.0,
+          "standard_value": 118784052.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_year_ago": {
+          "metric": "inventory",
+          "value": 119255000.0,
+          "standard_value": 119255000.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_previous": {
+          "metric": "inventory",
+          "value": 126270000.0,
+          "standard_value": 126270000.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "roe",
+        "current": {
+          "metric": "roe",
+          "value": 3.8,
+          "standard_value": 3.8,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2026-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "roe",
+          "value": 3.4,
+          "standard_value": 3.4,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "roe",
+          "value": 3.04,
+          "standard_value": 3.04,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2025-09-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_year_ago": {
+          "metric": "roe",
+          "value": 2.8899999999999997,
+          "standard_value": 2.8899999999999997,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous_previous": {
+          "metric": "roe",
+          "value": 3.06,
+          "standard_value": 3.06,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      }
+    ],
+    "previous_rows": [
+      {
+        "metric": "revenue",
+        "current": {
+          "metric": "revenue",
+          "value": 179800200.0,
+          "standard_value": 179800200.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "revenue",
+          "value": 152830170.0,
+          "standard_value": 152830170.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "revenue",
+          "value": 161820180.0,
+          "standard_value": 161820180.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "net_profit",
+        "current": {
+          "metric": "net_profit",
+          "value": 29815589.999999996,
+          "standard_value": 29815589.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "net_profit",
+          "value": 25343251.499999996,
+          "standard_value": 25343251.499999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "net_profit",
+          "value": 26834030.999999996,
+          "standard_value": 26834030.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "adjusted_profit",
+        "current": {
+          "metric": "adjusted_profit",
+          "value": 25144864.999999996,
+          "standard_value": 25144864.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "adjusted_profit",
+          "value": 21373135.249999996,
+          "standard_value": 21373135.249999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "adjusted_profit",
+          "value": 22630378.499999996,
+          "standard_value": 22630378.499999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "operating_cashflow",
+        "current": {
+          "metric": "operating_cashflow",
+          "value": 32491869.999999996,
+          "standard_value": 32491869.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "operating_cashflow",
+          "value": 27618089.499999996,
+          "standard_value": 27618089.499999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "operating_cashflow",
+          "value": 29242682.999999996,
+          "standard_value": 29242682.999999996,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "inventory",
+        "current": {
+          "metric": "inventory",
+          "value": 140300000.0,
+          "standard_value": 140300000.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "inventory",
+          "value": 119255000.0,
+          "standard_value": 119255000.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "inventory",
+          "value": 126270000.0,
+          "standard_value": 126270000.0,
+          "unit": "yuan",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      },
+      {
+        "metric": "roe",
+        "current": {
+          "metric": "roe",
+          "value": 3.4,
+          "standard_value": 3.4,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2026-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "prior_year": {
+          "metric": "roe",
+          "value": 2.8899999999999997,
+          "standard_value": 2.8899999999999997,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2025-06-30",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        },
+        "previous": {
+          "metric": "roe",
+          "value": 3.06,
+          "standard_value": 3.06,
+          "unit": "percentage",
+          "scope": "single_quarter",
+          "period_end": "2026-03-31",
+          "verified": true,
+          "source_page": 2,
+          "verification_method": "pdf_table_column",
+          "quote": "虚构格式示例，并非真实财报证据。",
+          "demo": true
+        }
+      }
+    ]
+  },
+  "decision": {
+    "rating_blockers": [
+      "虚构示例，不形成真实评级",
+      "行业与估值证据尚未接入"
+    ]
+  },
+  "scoring": {
+    "possible_range": [
+      58.6,
+      78.6
+    ],
+    "items": []
+  },
+  "research_profile": {
+    "version": "demo-v1",
+    "capture_kind": "at_generation",
+    "original_score": {
+      "score": 58.6
+    },
+    "current": {
+      "dimensions": [
+        {
+          "name": "财务质量",
+          "score": 81.5,
+          "complete": true,
+          "range": [
+            81.5,
+            81.5
+          ],
+          "coverage_pct": 100,
+          "factors": []
+        },
+        {
+          "name": "成长与财报变化",
+          "score": 73.0,
+          "complete": true,
+          "range": [
+            73.0,
+            73.0
+          ],
+          "coverage_pct": 100,
+          "factors": []
+        },
+        {
+          "name": "行业与竞争优势",
+          "score": null,
+          "complete": false,
+          "range": [
+            0,
+            100
+          ],
+          "coverage_pct": 0,
+          "factors": []
+        },
+        {
+          "name": "估值与安全边际",
+          "score": 62.0,
+          "complete": true,
+          "range": [
+            62.0,
+            62.0
+          ],
+          "coverage_pct": 100,
+          "factors": []
+        },
+        {
+          "name": "热点与市场关注",
+          "score": null,
+          "complete": false,
+          "range": [
+            0,
+            100
+          ],
+          "coverage_pct": 0,
+          "factors": []
+        },
+        {
+          "name": "交易时机",
+          "score": 65.1,
+          "complete": true,
+          "range": [
+            65.1,
+            65.1
+          ],
+          "coverage_pct": 100,
+          "factors": []
+        }
+      ],
+      "composites": {
+        "short": {
+          "complete": false,
+          "range": [
+            42,
+            78
+          ],
+          "coverage_pct": 64
+        },
+        "medium": {
+          "complete": false,
+          "range": [
+            46,
+            82
+          ],
+          "coverage_pct": 64
+        }
+      },
+      "market_environment": {
+        "label": "虚构演示",
+        "note": "未获取真实大盘行情。"
+      },
+      "risk_flags": [],
+      "interpretation": "所有数值为虚构样例。",
+      "enhancement_gaps": [
+        "需要使用者提供真实、独立且可核对的证据。"
+      ]
+    }
+  }
+}
